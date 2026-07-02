@@ -1,0 +1,1 @@
+"""DingPay license server."""
