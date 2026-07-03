@@ -75,7 +75,7 @@ class TtsManager(context: Context) : TextToSpeech.OnInitListener {
     fun speakPayment(rule: PaymentRule, payment: ParsedPayment, language: BroadcastLanguage): TtsSpeakResult {
         val amount = "%.2f".format(payment.amount)
         val zhPhrase = "${rule.title} ${payment.currency}$amount"
-        val esPhrase = "Pago recibido ${payment.currency}$amount en ${rule.title}"
+        val esPhrase = "Pago recibido ${payment.currency}$amount"
         val phrase = when (language) {
             BroadcastLanguage.ZH -> zhPhrase
             BroadcastLanguage.ES -> esPhrase
