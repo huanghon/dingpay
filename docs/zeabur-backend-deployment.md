@@ -24,10 +24,13 @@ Deploy the DingPay FastAPI license backend to Zeabur China
 4. Add a PostgreSQL service in the same project for persistent
    license/admin data.
 5. Add a service from the GitHub repository.
-6. Set the service root directory to `server`.
-7. Prefer the included `server/Dockerfile` for deterministic deployment, or
-   confirm Zeabur detects Python dependencies from `server/requirements.txt`
-   when using Nixpacks.
+6. If Zeabur shows `Dockerfile is required for arbitrary Git sources`, keep
+   the service root at the repository root and use the root `Dockerfile`.
+   China-region arbitrary Git source deployment may not auto-detect
+   `server/Dockerfile`.
+7. If the GitHub integration supports root directory settings in your project,
+   either repository root `Dockerfile` or `server/Dockerfile` works. For the
+   simplest manual deployment, use the repository root `Dockerfile`.
 8. Bind PostgreSQL to the backend service so Zeabur injects `DATABASE_URL`.
 9. Add these backend environment variables:
    - `DINGPAY_SECRET_KEY`: long random production secret.
